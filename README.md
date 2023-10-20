@@ -9,3 +9,7 @@ A panel widget built with eww
   - `cd ~/.config/ && git clone https://github.com/Frusadev/fewwbar.git eww`
 - And then run this command:
   `eww open taskbar`
+
+## Warning
+
+Some functionalities are not yet implemented such as wifi, volume and brightness...
