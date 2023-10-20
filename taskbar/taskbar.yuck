@@ -1,0 +1,228 @@
+(defvar screen_width 1366)
+(defvar screen_height 768)
+(defvar panel_height {round(768*5/100-0.4, 0)})
+
+(defpoll time :interval "1s"
+  `date +%H:%M`
+)
+
+(defpoll date :interval "1s"
+  `date "+%B %d %Y"`
+)
+
+(defpoll cpu :interval "1s"
+  :initial "N/A"
+  `top -b -n 1 | grep '%Cpu(s):' | awk '{print $2}'`
+)
+
+(defpoll mem :interval "1s"
+  :initial "N/A"
+  `free | grep Mem | awk '{printf "%.0f", $3/$2 * 100}'`
+)
+
+(defpoll battery :interval "1s"
+  :initial "N/A"
+  `acpi -b | awk -F ', ' '{print $2}' | awk -F ' ' '{print $1}' | tr -d '%'`
+)
+
+(defwidget appmenu[]
+  ;; The box that will contain the app menu icon
+  (box
+    :orientation "h"
+    :class "panelbar mn-btn-container"
+    :width 30
+    :height 30
+    (button
+      :class "appmenu-btn"
+      :height 24
+      :width 24
+      (image
+        :image-width "24"
+        :image-height "24"
+        :path "taskbar/assets/apps.png"
+      )
+    )
+  )
+)
+
+(defwidget worspaces-menu[]
+  (box
+    :class "workspaces panelbar"
+    :width "10"
+    :height "5"
+    (box
+      :space-evenly true
+      :spacing 10
+      :halign "center"
+      
+      ;; workspace button 1
+      (button
+        :class "w-btn"
+        :height 30
+        :width 30
+        :onclick `wmctrl -s 0`
+        (image
+          :image-width "24"
+          :image-height "24"
+          :path "taskbar/assets/workspace.png"
+        )
+      )
+      ;; workspace button 2
+      (button
+        :class "w-btn"
+        :height 30
+        :width 30
+        :onclick `wmctrl -s 1`
+        (image
+          :image-width "24"
+          :image-height "24"
+          :path "taskbar/assets/workspace.png"
+        )
+      )
+    )
+  )
+)
+
+(defwidget tasks-fav[]
+  (box
+    :width {round(screen_width*72.1/100, 0)}
+    :height {panel_height}
+    :orientation "h"
+    :halign "start"
+    :class "tasks-fav panelbar"
+    :space-evenly "false"
+    ;; Time and date
+    (box
+      :halign "start"
+      (label :text "${time},    ${date}" :class "panel datetime")
+    )
+    ;; apps shotcuts icons
+    (box
+      :orientation "h"
+      :halign "start"
+      :class "shotcut-container"
+      :space-evenly "false"
+      :spacing 15
+      ;; chrome button
+      (button
+        :class "app-shotcut"
+        :width 43
+        :onclick `google-chrome-stable &`
+        (image
+          :path "taskbar/assets/chrome.png"
+        )
+      )
+      ;; terminal
+      (button
+        :class "app-shotcut"
+        :width 43
+        :onclick `xfce4-terminal &`
+        (image
+          :path "taskbar/assets/terminal.png"
+        )
+      )
+      ;; file manager
+      (button
+        :class "app-shotcut"
+        :width 43
+        :onclick `thunar &`
+        (image
+          :path "taskbar/assets/folder.png"
+        )
+      )
+    )
+    ;; separator
+    (label 
+      :class "separator"
+      :text "|"
+    )
+    ;; volume, wifi, battery, cpu, memory
+    (box
+      :orientation "h"
+      :class "systray"
+      :space-evenly "false"
+      :spacing 10
+      ;; cpu
+      (button
+        :class "systray-btn"
+        :width 110
+        :halign "start"
+        (box
+          (image :path "taskbar/assets/cpu-line.png")
+          (label :text "${cpu}%" :class "sysinfo")
+        )
+      )
+      ;; memory
+      (button
+        :class "systray-btn"
+        :width 78
+        :halign "start"
+        (box
+          (image :path "taskbar/assets/memory.png")
+          (label :text "${mem}%" :class "sysinfo")
+        )
+      )
+      ;; battery
+      (button
+        :class "systray-btn"
+        :width 78
+        :halign "start"
+        (box
+          (image :path "taskbar/assets/battery-fill.png")
+          (label :text "${battery}%" :class "sysinfo")
+        )
+      )
+      "|"
+      ;; systray icons
+      ;; wifi
+      (button
+        :class "app-shotcut"
+        :width 43
+        (image
+          :path "taskbar/assets/wifi.png"
+        )
+      )
+      ;; volume
+      (button
+        :class "app-shotcut"
+        :width 43
+        (image
+          :path "taskbar/assets/volume.png"
+        )
+      )
+      ;; brightness
+      (button
+        :class "app-shotcut"
+        :width 43
+        (image
+          :path "taskbar/assets/sun-fill.png"
+        )
+      )
+    )
+  )
+)
+
+(defwidget musicbar[]
+  (box
+    :space-evenly "true"
+    :spacing "2"
+    :class "panelbar musicbar"
+
+    :width {round(screen_width*11.3/100, 0)}
+    ;; prev
+    (button
+      :class "musicplayer-btn-left"
+      (image :path "taskbar/assets/skip-left-fill.svg")
+    )
+    ;; pause
+    (button
+      :class "musicplayer-btn-center"
+      (image :path "taskbar/assets/play-fill.svg")
+    )
+    ;; next
+    (button
+      :class "musicplayer-btn-right"
+      (image :path "taskbar/assets/skip-right-fill.svg")
+    )
+  )
+)
