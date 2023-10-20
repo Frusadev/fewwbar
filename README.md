@@ -24,6 +24,6 @@ You might also need to modify the css a little so the panel can match your scree
 }
 ```
 
-Also make sure you have wmctrl, top, acpi, google-chrome-stable, xfce4-terminal and thunar installed on your system.
+Also make sure you have `wmctrl, top, acpi, google-chrome-stable, xfce4-terminal and thunar installed on your system`.
 
 By the way i'm using arch linux. If your system doesn't recognize some commands, feel free to change them in `taskbar.yuck`
