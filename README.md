@@ -36,7 +36,7 @@ Remember you can change the dimensions of fewwbar to match your screen's, just m
 
 ## How to install
 
-- Make a backup of you config files.
+- Make a backup of your config files.
 - move `eww` and `frusadev-openbox` in the `update` directory to `~/.config/`
 - launch the panel with `eww open bar-window`
 
