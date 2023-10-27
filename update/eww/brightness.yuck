@@ -1,0 +1,40 @@
+; (defvar screen_width 1366)
+; (defvar screen_height 768)
+  ; (defpoll brightness
+  ;   :interval "10000000"
+  ;   "amixer sget Master | grep -o -m 1 '[0-9]\+%' | tr -d '%'"
+  ; )
+  (defpoll brightness_value :interval "1s"                        
+    `brightnessctl -m -d radeon_bl0 | awk -F, '{print substr($4, 0, length($4)-1)}' | tr -d '%' &`
+  )
+  
+  
+  (defwindow brightnessctl
+    :geometry (geometry
+      :height "150"
+      :width "50"
+      ; :windowtype "normal"
+      :class "brightnessctl"
+      :x "93%"
+      :y "50"
+    )
+    (box
+      :class "brightnessctl-scale-container"
+      :halign "center"
+      :height 120
+      :width 30
+      :orientation "v"
+      (eventbox
+        :onhoverlost "eww close brightnessctl &"
+        ; :class "brightnessctl-scale-container"
+        (scale :orientation "v"
+             :height 120
+             :min 5
+             :max 100
+             :value brightness_value
+             :flipped "true"
+             :onchange `brightnessctl set {}% &`
+        )
+      )
+    )
+  )

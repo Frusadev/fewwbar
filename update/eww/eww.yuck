@@ -1,0 +1,41 @@
+(include "./app_launcher.yuck")
+(include "./apps_shotcut.yuck")
+(include "./wo_switcher.yuck")
+(include "./datetime.yuck")
+(include "./stats.yuck")
+(include "./sys-tray.yuck")
+(include "./volume.yuck")
+(include "./brightness.yuck")
+
+;;; CHANGE THESE VARIABLE'S VALUES ACCORDING TO YOUR SYSTEM AND SETUP
+
+(defvar screen_width 1366)
+(defvar screen_height 768)
+
+(defwindow bar-window
+  :class "bar-window"
+  :windowtype "dock"
+  :wm-ignore "false"
+  :geometry (
+    geometry
+      :x "0"
+      :y "0"
+      :height "6%"
+      :width "100%"
+  )
+  (box
+    :class "widgets-container"
+    :halign "start"
+    :orientation "h"
+    :width screen_width
+    :height {round(screen_height*9/100, 0)}
+    :spacing "10"
+    :space-evenly "false"
+    (launcher)
+    (wo_switcher)
+    (apps_shotcut)
+    (datetime)
+    (stats)
+    (systray)
+  )
+)

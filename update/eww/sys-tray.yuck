@@ -1,0 +1,41 @@
+
+(defwidget systray[]
+  (box
+    :class "systray-ctn"
+    :width 120
+    :spacing 5
+    (button
+      :class "systray-btn"
+      :onclick "bash ~/.config/frusadev-openbox/rofi-scripts/rofi-network-manager/rofi-network-manager.sh &"
+      :width 30
+      (image :path "assets/signal-wifi-fill@4x.png"
+        :image-width 24
+      )  
+    )
+
+    (button
+      :class "systray-btn"
+      :onclick "eww open volumectl &"
+      (image :path "assets/volume-down-fill@4x.png"
+        :image-width 24
+      )
+    )
+
+    (button
+      :class "systray-btn"
+      :onclick "eww open brightnessctl &"
+      (image :path "assets/sun-fill (1)@4x.png"
+        :image-width 24
+      )
+    )
+
+    (button
+      :class "systray-btn"
+      :onclick "bash ~/.config/frusadev-openbox/rofi-scripts/powermenu.sh &"
+      (image :path "assets/shut-down-line@4x.png"
+        :image-width 24
+      )
+    )
+  )
+  
+)

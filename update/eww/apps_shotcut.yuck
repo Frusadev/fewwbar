@@ -1,0 +1,56 @@
+;;; CHANGE THESE VARIABLE'S VALUES ACCORDING TO YOUR SYSTEM AND SETUP
+
+(defwidget apps_shotcut[]
+  (box 
+    :class "apps-shotcut"
+    :width 270
+    :halign "start"
+    :spacing 5
+    :space-evenly "true"
+
+    (button
+      :halign "center"
+      :class "app-shot-launcher"
+      :width "24"
+      :onclick "thunar &"
+      (image
+        :path "assets/Folder@4x.png"
+        :image-width 20
+        :image-height 20
+      )
+    )
+    (button
+      :halign "center"
+      :class "app-shot-launcher"
+      :width "24"
+      :onclick "alacritty &"
+      (image
+        :path "assets/Terminal@4x.png"
+        :image-width 20
+        :image-height 20
+      )
+    )
+    (button
+      :halign "center"
+      :class "app-shot-launcher"
+      :width "24"
+      :onclick "codium &"
+      (image
+        :path "assets/code@4x.png"
+        :image-width 20
+        :image-height 20
+      )
+    )
+    (button
+      :onclick "google-chrome-stable &"
+      :halign "center"
+      :class "app-shot-launcher"
+      :width "24"
+      (image
+        :path "assets/chrome-fill@4x.png"
+        :image-width 20
+        :image-height 20
+      )
+    )
+  )
+)

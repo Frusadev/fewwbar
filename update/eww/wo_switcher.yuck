@@ -1,0 +1,31 @@
+(defwidget wo_switcher[]
+  (box 
+    :spacing 8
+    :space-evenly "true"
+    :class "workspaces-container"
+    (button :class "workspace" :width 40 :onclick "wmctrl -s 0"
+      (image :path "assets/24px Copy@4x.png"
+        :image-height 14
+        :image-width 14
+      )
+    )
+    (button :class "workspace" :width 40 :onclick "wmctrl -s 1"
+      (image :path "assets/24px Copy@4x.png"
+        :image-height 14
+        :image-width 14
+      )
+    )
+    (button :class "workspace" :width 40 :onclick "wmctrl -s 2"
+      (image :path "assets/24px Copy@4x.png"
+        :image-height 14
+        :image-width 14
+      )
+    )
+    (button :class "workspace" :width 40 :onclick "wmctrl -s 3"
+      (image :path "assets/24px Copy@4x.png"
+        :image-height 14
+        :image-width 14
+      )
+    )
+  )
+)

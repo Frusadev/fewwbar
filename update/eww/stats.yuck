@@ -1,0 +1,81 @@
+(defpoll cpu :interval "1s"
+  :initial "N/A"
+  `top -b -n 1 | grep '%Cpu(s):' | awk '{print $2}'`
+)
+
+(defpoll mem :interval "1s"
+  :initial "N/A"
+  `free | grep Mem | awk '{printf "%.0f", $3/$2 * 100}'`
+)
+
+(defpoll battery :interval "1s"
+  :initial "N/A"
+  `acpi -b | awk -F ', ' '{print $2}' | awk -F ' ' '{print $1}' | tr -d '%'`
+)
+
+(defpoll battery_status_cmd
+  :initial "nc"
+  :interval "1s"
+  `acpi -b | awk '{print $3}'`
+)
+
+
+(defwidget stats[]
+  (box
+    :class "stats-container"
+    :spacing 10
+    :space-evenly "true"
+    :width 150
+    (box :class "stat-box"
+      (button :class "stat-btn" 
+        :width 130
+        :space-evenly "false"
+        (box 
+          :space-evenly "false"
+          (image :path "assets/cpu-line@4x.png"
+            :class "stat-ic"
+            :image-width 30
+            :halign "start"
+          )
+          (label :class "stat-val" :text "${cpu}%"
+            :halign "start"
+          )
+        )
+      )
+    )
+
+    (box :class "stat-box"
+      (button :class "stat-btn" :width 130
+        :space-evenly "false"
+        (box
+          :space-evenly "false"
+          (image :path "assets/pie-chart-2-fill (1)@4x.png"
+            :class "stat-ic"
+            :image-width 30
+            :halign "start"
+          )
+          (label :class "stat-val" :text "${mem}%"
+            :halign "start" :width 30
+          )
+        )
+      )
+    )
+
+    (box :class "stat-box"
+      (button :class "stat-btn" :width 130
+        :space-evenly "false"
+        (box
+          :space-evenly "false"
+          (image :path {battery_status_cmd == "Full," ? "assets/battery-charge-fill (1).svg" : battery_status_cmd == "Charging," ? "assets/battery-charge-line.svg" : battery >= 80 ? "assets/battery-fill (1).svg" : "assets/battery-line.svg"}
+            :class "stat-ic"
+            :image-width 30
+            :halign "start"
+          )
+          (label :class "stat-val" :text "${battery}%"
+            :halign "start" :width 30
+          )
+        )
+      )
+    )
+  )
+)

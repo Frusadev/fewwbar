@@ -1,0 +1,14 @@
+(defwidget launcher[]
+  
+  (box
+    :height 30
+    :width 30
+    (button :class "launcher-btn"
+    :onclick "bash /home/frusadev/.config/frusadev-openbox/rofi-scripts/launcher.sh &"
+      (image :path "assets/24px_2@4x.png"
+        :image-height "24"
+        :image-width "22"
+      )
+    )
+  )
+)

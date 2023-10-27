@@ -1,0 +1,13 @@
+(defwindow bar
+  :windowtype "dock"
+  :wm-ignore "false"
+  :geometry (
+    geometry
+      :x "0.5%"
+      :y "1%"
+      :width "99%"
+      :height "5%"
+  )
+  :class "window-bar"
+  (box )
+)

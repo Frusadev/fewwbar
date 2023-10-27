@@ -1,0 +1,29 @@
+; (defvar screen_width 1366)
+; (defvar screen_height 768)
+  (defpoll vol :interval "1s" "amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
+
+
+(defwindow volumectl
+  :geometry (geometry
+    :height "120"
+    :width "50"
+    ; :windowtype "normal"
+    :class "brightnessctl"
+    :x "90%"
+    :y "50"
+  )
+  (box
+    :height 120
+    :class "brightnessctl-scale-container"
+    (eventbox
+      :onhoverlost "eww close volumectl &"
+      (scale :orientation "v"
+        :min 0
+        :max 100
+        :flipped "true"
+        :value vol
+        :onchange `amixer -D pulse sset Master {}% &` 
+      )
+    )
+  )
+)

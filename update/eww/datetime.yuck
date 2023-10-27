@@ -1,0 +1,13 @@
+(defpoll time :interval "1s"
+  `date +%H:%M`
+)
+
+(defpoll date :interval "1s"
+  `date "+%B %d %Y"`
+)
+
+(defwidget datetime[]
+  (box 
+    (label :text "${time},  ${date}" :class "datetime")
+  )
+)

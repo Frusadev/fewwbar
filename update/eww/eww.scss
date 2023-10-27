@@ -1,0 +1,149 @@
+$main: #07070a;
+$main_radius: 0px;
+$default_tb_margin: 0.2rem;
+
+.bar-window {
+  background-color: transparent;
+}
+
+.widgets-container {
+  background-color: $main;
+  border-bottom-left-radius: $main_radius;
+  border-bottom-right-radius: $main_radius;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  box-shadow: 0 0 0.5rem 0.1rem black;
+  margin-bottom: 2rem;
+}
+
+.launcher-btn {
+  margin-left: 0.60rem;
+  border-radius: 10px;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+  border: none;
+  background-color: #181B1D;
+  outline: none;
+  border-top: none;
+  box-shadow: none;
+  border-top-color: #181B1D;
+}
+
+.launcher-btn:hover {
+  background-color: #1f2225;
+}
+
+.launcher-btn:active {
+  background-color: #0d0e0f
+}
+
+.apps-shotcut {
+  background-color: transparent;
+  border: 1px solid #B5A54B;
+  border-radius: 23px;
+  margin-top: $default_tb_margin;
+  margin-bottom: $default_tb_margin;
+  margin-left: 5rem;
+}
+
+.app-shot-launcher {
+  border: none;
+  border-radius: 100%;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+  margin-left: 0.2rem;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.app-shot-launcher:hover {
+  background-color: rgba(53, 53, 53, 0.507);
+}
+
+.app-shot-launcher:active {
+  background-color: rgba(22, 22, 22, 0.753);
+}
+
+.workspaces-container {
+  margin-left: 3rem;
+}
+
+.workspace {
+  background-color: transparent;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  box-shadow: none;
+  border-radius: 2rem;
+  border: none;
+}
+
+.workspace:hover {
+  background-color: rgba(43, 43, 43, 0.527);
+}
+
+.workspace:active {
+  background-color: rgba(71, 71, 71, 0.527);
+}
+
+.datetime {
+  font-family: "SourceCodePro";
+  margin-left: 1rem;
+  font-weight: bold;
+}
+
+.stat-ic {
+  margin-left: 0.2rem;
+}
+
+.stat-btn {
+  border: none;
+  box-shadow: none;
+  margin-top: 0.3rem;
+  margin-bottom: 0.25rem;
+  border-radius: 2rem;
+}
+.stat-val {
+  padding: 0;
+  margin: 0;
+  margin-left: 0.8rem;
+}
+
+.systray-btn {
+  border: none;
+  box-shadow: none;
+  border-radius: 2rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+  background-color: transparent;
+  margin-left: 0.1rem;
+}
+
+.systray-btn:hover {
+  background-color: rgba(40, 42, 53, 0.568);
+}
+
+.systray-btn:active {
+  background-color: rgba(75, 79, 102, 0.849);
+}
+
+.volumectl {
+  background-color: transparent;
+  // box-shadow: 0 0 1rem 1rem black;
+  padding-bottom: 1rem;
+  border: none;
+  border-radius: 10rem;
+}
+
+.brightnessctl {
+  background-color: transparent;
+}
+
+.brightnessctl-scale-container {
+  background-color: $main;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 2rem;
+  box-shadow: 0 0 0.5rem 0.5rem black;
+}
