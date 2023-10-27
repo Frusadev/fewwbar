@@ -17,7 +17,7 @@ a panel widget built with eww
 ![dd](https://github.com/Frusadev/fewwbar/assets/81917636/2fb1c6b6-ad90-42b8-969e-2deb6ea055c4)
 
 
-**screenshot of modified the border radius**
+**screenshot of the modified border radius**
 ![round](https://github.com/Frusadev/fewwbar/assets/81917636/e41e26c8-d9ea-4b89-8c97-48a5984957dc)
 
 `As the first version of fewwbar, you will need thunar, google-chrome-stable and codium installed, for the terminal you will need alacritty.`
