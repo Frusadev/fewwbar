@@ -24,7 +24,7 @@ a panel widget built with eww
 
 ## Dependencies:
 
-`amixer rofi brightnessctl thunar google-chrome-stable codium top acpi`
+`amixer rofi brightnessctl thunar google-chrome-stable codium top acpi alacritty`
 
 ## Warning:
 
