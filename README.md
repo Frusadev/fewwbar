@@ -28,7 +28,7 @@ a panel widget built with eww
 
 ## Warning:
 
-This widget has been built for 1366x768 screens, even though it might still work on different resolutions, the risk of rendering issues is high, especially for very larger screens or very smaller screens.
+This widget has been built for 1366x768 displays, even though it might still work on different resolutions, the risk of rendering issues is high, especially for very larger screens or very smaller screens.
 
 Remember you can change the dimensions of fewwbar to match your screen's, just modify the variables `screen_width` and `screen_height` in eww.yuck:
 
